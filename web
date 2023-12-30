@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Matrimony Website</title>
+        <style>
+            body {
+                background-color: #f4f4f4;
+                text-align: center;
+            }
+            h1 {
+                color: #333;
+            }
+            form {
+                max-width: 400px;
+                margin: 0 auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            label {
+                display: block;
+                margin-bottom: 8px;
+                text-align: left;
+            }
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+            }
+            button {
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #555;
+            }
+            #display-info {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Matrimony Website</h1>
+        <form id="matrimony-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="gender">Your Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <label for="partner">Preferred Partner Gender:</label>
+            <select id="partner" name="partner" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="display-info"></div>
+        <script>
+            function submitForm() {
+                // Get form values
+                var name = document.getElementById("name").value;
+                var gender = document.getElementById("gender").value;
+                var partnerGender = document.getElementById("partner").value;
+                // Display submitted information
+                var displayInfo = document.getElementById("display-info");
+                displayInfo.innerHTML = `
+                    <h2>Submitted Information</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Your Gender:</strong> ${gender}</p>
+                    <p><strong>Preferred Partner Gender:</strong> ${partnerGender}</p>
+                `;
+                // Clear form fields
+                document.getElementById("matrimony-form").reset();
+            }
+        </script>
+    </body>
+</html>
